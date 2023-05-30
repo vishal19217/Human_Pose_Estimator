@@ -1,1 +1,3 @@
-# Human_Pose_Estimator
+# Human Pose Estimation using ViT
+
+Although no specific domain knowledge is considered in the design, plain vision transformers have shown excellent performance in visual recognition tasks. In this paper, we work on upon VitPose \cite{xu2022vitpose} and add our novelty to it. It is not always possible for the body key points to be present, or even visible, even though the model is predicting their locations (via MSELoss applied on the heatmaps). Therefore, using the heatmaps, we predict the presence of the corresponding keypoints in the picture, as a classification task. Since we are predicting the locations of the key points along with their presence, we have implemented a custom loss function; a linear combination of 2 loss functions, i.e. Binary Cross Entropy and MSELoss. The former is for predicting each keypoint presence (classification task), and the latter is for the prediction of the keypoint's coordinate (regression task).
